@@ -6,7 +6,7 @@ const router = expresss.Router();
 router.get('/', getAllMovies);
 
 //GET www.localhost:3002/api/v1/movies/75
-router.post('/:id', getSingleMovie);
+router.get('/:id', getSingleMovie);
 
 //POST www.localhost:3002/api/v1/movies/
 router.post('/', createMovie );
