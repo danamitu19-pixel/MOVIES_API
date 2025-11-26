@@ -67,6 +67,11 @@ const getObjectsByGenre = (genre) => {
     return objects.filter((object) => object.genre.toLowerCase() === genre.toLowerCase());
 }
 
+//Sort movies by year (ascending)
+const getObjectsSortedByYear = () => {
+    return [...objects].sort((a, b) => a.year - b.year);
+}   
+
  
  
 module.exports = {
@@ -75,5 +80,6 @@ module.exports = {
     getObjectById,
     deleteObjectById,
     updateObjectById,
-    getObjectsByGenre
+    getObjectsByGenre,
+    getObjectsSortedByYear
 }
