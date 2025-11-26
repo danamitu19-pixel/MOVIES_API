@@ -61,6 +61,12 @@ const updateObjectById = (id, updatedObject) => {
     }
     return null;
 }
+
+//Get all movies in a specifc genre
+const getObjectsByGenre = (genre) => {
+    return objects.filter((object) => object.genre.toLowerCase() === genre.toLowerCase());
+}
+
  
  
 module.exports = {
@@ -68,5 +74,6 @@ module.exports = {
     addObject,
     getObjectById,
     deleteObjectById,
-    updateObjectById
+    updateObjectById,
+    getObjectsByGenre
 }

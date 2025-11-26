@@ -1,4 +1,4 @@
-const {getAllObjects, getObjectById, deleteObjectById, updateObjectById} = require('../data/databaseGeneric');
+const {getAllObjects, getObjectById, addObject, deleteObjectById, updateObjectById, getObjectsByGenre} = require('../data/databaseGeneric');
 
 const getAllMovies = async(req, res) => {
     try {
@@ -57,11 +57,25 @@ const deleteMovie = async(req, res) => {
         res.status(500).json({success: false, error: "Something went wrong"});
     }
 }
+
+const getMovieByGenre = async(req, res) => {
+    try {
+        const {genre} = req.params;
+        const movies = await getObjectsByGenre(genre);
+        res.status(200).json({success: true, data: movies});
+    } catch (error) {
+        res.status(500).json({success: false, error: "Something went wrong"});
+    }   
+};
+
+
+
 module.exports = {
     getAllMovies,
     getSingleMovie,
     createMovie,
     updateMovie,
-    deleteMovie
+    deleteMovie,
+    getMovieByGenre
 }
 
